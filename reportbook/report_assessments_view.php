@@ -41,7 +41,7 @@ two_buttonmenu($extrabuttons,$book);
 $students=array();
 $description='';
 
-	if(sizeof($cids)>0){
+	if(sizeof($cids)>0 and $cids[0]!=''){
 		foreach($cids as $cid){
 			$description.=$cid.' ';
 			$students=array_merge($students,listin_class($cid));

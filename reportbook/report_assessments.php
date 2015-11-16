@@ -5,7 +5,7 @@
 $action='report_assessments_action.php';
 $choice='report_assessments.php';
 
-if(isset($_POST['yid'])){$yid=$_POST['yid'];}
+if(isset($_POST['yid'])){$yid=$_POST['yid'];}else{$yid='';}
 if(isset($_POST['comid']) and $_POST['comid']!=''){$comid=$_POST['comid'];}else{$comid='';}
 if(isset($_POST['profid'])){$profid=$_POST['profid'];}else{$profid='%';}
 if(isset($_POST['gender'])){$gender=$_POST['gender'];}else{$gender='';}
@@ -63,8 +63,7 @@ three_buttonmenu();
                 <?php
                     $classes=array();
                     foreach($cohorts as $cohort){
-                    	trigger_error(':'.$cohort['course_id'],E_USER_WARNING);
-                    $classes=array_merge($classes,list_course_classes($cohort['course_id']));
+						$classes=array_merge($classes,list_course_classes($cohort['course_id']));
                     	}
                     $listname='cid';$listlabel='classes';$required='no';$multi=5;
                     include('scripts/set_list_vars.php');
